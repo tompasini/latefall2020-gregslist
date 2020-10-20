@@ -5,7 +5,7 @@ export default class Car {
         this.year = data.year
         this.price = data.price
         this.imgUrl = data.imgUrl
-        this.description = data.description || "Uknown"
+        this.description = data.description || "Unknown"
         this._id = data._id
     }
 
@@ -18,7 +18,7 @@ export default class Car {
             <h3>$${this.price}</h3>
             <p>${this.year}</p>
             <p>${this.description}</p>
-            <button class="btn btn-danger btn-block" onclick="app.carController.deleteCar('${this._id}')">Delort</button>
+            <button class="btn btn-danger btn-block" onclick="app.carController.deleteCar('${this._id}')">Delete</button>
             <button type="button" class="btn btn-primary btn-block" data-toggle="modal" data-target="#editCarModal-${this._id}">
             Edit
         </button>

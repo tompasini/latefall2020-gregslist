@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="assets/style/main.css">
+    <link rel="stylesheet" href="assets/style/style.css">
     <title>gregslist</title>
 </head>
 
@@ -21,7 +22,16 @@
         </nav>
     </header>
     <main>
-        <form class="container-fluid" onsubmit="app.carController.postCar(event)">
+        <div class="container-fluid">
+            <div class="row py-2 text-center">
+                <div class="col-12">
+                    <button onclick="app.carController.getCars()" class="btn btn-dark">Cars</button>
+                    <button onclick="app.jobController.getJobs()" class="btn btn-dark">Jobs</button>
+                    <button onclick="app.houseController.getHouses()" class="btn btn-dark">Houses</button>
+                </div>
+            </div>
+        </div>
+        <form id="car-form" class="container-fluid hidden" onsubmit="app.carController.postCar(event)">
             <div class="row justify-content-center">
                 <div class="col-4">
                     <div class="form-group row">
@@ -59,9 +69,90 @@
                 </div>
             </div>
         </form>
+        <form id="job-form" class="container-fluid hidden" onsubmit="app.jobController.postJob(event)">
+            <div class="row justify-content-center">
+                <div class="col-4">
+                    <div class="form-group row">
+                        <label for="jobTitle" class="col-sm-12 col-form-label">Job Title</label>
+                        <div class="col-sm-12">
+                            <input type="text" class="form-control" name="jobTitle" id="jobTitle" placeholder="">
+                        </div>
+                        <label for="company" class="col-sm-12 col-form-label">Company</label>
+                        <div class="col-sm-12">
+                            <input type="text" class="form-control" name="company" id="company" placeholder="">
+                        </div>
+                        <label for="rate" class="col-sm-12 col-form-label">Rate</label>
+                        <div class="col-sm-12">
+                            <input type="number" min="1" class="form-control" name="rate" id="rate" placeholder="">
+                        </div>
+                        <label for="hours" class="col-sm-12 col-form-label">Hours</label>
+                        <div class="col-sm-12">
+                            <input type="number" min="1" class="form-control" name="hours" id="hours" placeholder="">
+                        </div>
+                        <label for="description" class="col-sm-12 col-form-label">Description</label>
+                        <div class="col-sm-12">
+                            <textarea name="description" class="form-control" id="description" cols="30"
+                                rows="10"></textarea>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <div class="offset-sm-2 col-sm-10">
+                            <button type="submit" class="btn btn-primary">Submit</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+        <form id="house-form" class="container-fluid hidden" onsubmit="app.houseController.postHouse(event)">
+            <div class="row justify-content-center">
+                <div class="col-4">
+                    <div class="form-group row">
+                        <label for="bedrooms" class="col-sm-12 col-form-label">Bedrooms</label>
+                        <div class="col-sm-12">
+                            <input type="text" class="form-control" name="bedrooms" id="bedrooms" placeholder="">
+                        </div>
+                        <label for="bathrooms" class="col-sm-12 col-form-label">Bathrooms</label>
+                        <div class="col-sm-12">
+                            <input type="text" class="form-control" name="bathrooms" id="bathrooms" placeholder="">
+                        </div>
+                        <label for="levels" class="col-sm-12 col-form-label">Levels</label>
+                        <div class="col-sm-12">
+                            <input type="text" class="form-control" name="levels" id="levels" placeholder="">
+                        </div>
+                        <label for="year" class="col-sm-12 col-form-label">Year</label>
+                        <div class="col-sm-12">
+                            <input type="range" min="1900" max="2020" class="form-control" name="year" id="year"
+                                placeholder="">
+                        </div>
+                        <label for="imgUrl" class="col-sm-12 col-form-label">Image Url</label>
+                        <div class="col-sm-12">
+                            <input type="text" class="form-control" name="imgUrl" id="imgUrl" placeholder="">
+                        </div>
+                        <label for="price" class="col-sm-12 col-form-label">Price</label>
+                        <div class="col-sm-12">
+                            <input type="number" min="1" class="form-control" name="price" id="price" placeholder="">
+                        </div>
+                        <label for="description" class="col-sm-12 col-form-label">Description</label>
+                        <div class="col-sm-12">
+                            <textarea name="description" class="form-control" id="" cols="30" rows="10"></textarea>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <div class="offset-sm-2 col-sm-10">
+                            <button type="submit" class="btn btn-primary">Submit</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
         <div class="container-fluid" id="app">
-            <div id="cars" class="row">
-
+            <div id="listings" class="row">
+                <div class="col-12 d-flex">
+                    <div class="align-self-center">
+                        <h1><i class="fa fa-italic" aria-hidden="true">Welcome to Greglist</i>
+                        </h1>
+                    </div>
+                </div>
             </div>
         </div>
     </main>

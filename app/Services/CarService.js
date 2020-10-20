@@ -9,7 +9,6 @@ class CarService {
     }).catch(err => console.error(err))
   }
   constructor() {
-    this.getCars()
   }
   getCars() {
     api.get("cars").then(res => {

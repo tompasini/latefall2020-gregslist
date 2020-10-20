@@ -6,14 +6,16 @@ import { carService } from "../Services/CarService.js";
 function _draw() {
   let template = ""
   ProxyState.cars.forEach(c => template += c.Template)
-  document.getElementById("cars").innerHTML = template
+  document.getElementById("listings").innerHTML = template
+  document.getElementById('job-form').classList.add('hidden')
+  document.getElementById('house-form').classList.add('hidden')
+  document.getElementById("car-form").classList.remove("hidden")
 }
 
 //Public
 export default class CarController {
   constructor() {
     ProxyState.on("cars", _draw);
-    _draw()
   }
 
   postCar(e) {
@@ -49,6 +51,10 @@ export default class CarController {
 
   deleteCar(carId) {
     carService.deleteCar(carId)
+  }
+
+  getCars() {
+    carService.getCars()
   }
 
 }
